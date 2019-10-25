@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/rabbitMqPoc/v16/Server/sqlite3
+*.suo
+/src/rabbitmqreceive/bin/Debug/netcoreapp3.0
+/src/rabbitmqreceive/obj/Debug/netcoreapp3.0
+/src/rabbitmqreceive/obj
+/src/rabbitmqsend/bin/Debug/netcoreapp3.0
+/src/rabbitmqsend/obj/Debug/netcoreapp3.0
+/src/rabbitmqsend/obj
