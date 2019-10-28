@@ -12,21 +12,29 @@ namespace rabbitmqsend
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "hello",
+                channel.QueueDeclare(queue: "Numbers",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
                                      arguments: null);
 
-                string message = "I'm a message, read me";
-                var body = Encoding.UTF8.GetBytes(message);
+                for(int i = 0; i <= 10; i++)
+                {
+                    Random rdn = new Random();
+                    var randonNum = rdn.Next(0, 150);
 
-                channel.BasicPublish(exchange: "",
-                                     routingKey: "hello",
-                                     basicProperties: null,
-                                     body: body);
+                    var body = Encoding.UTF8.GetBytes(randonNum.ToString());
 
-                Console.WriteLine(" [x] Sent {0}", message);
+                    channel.BasicPublish(exchange: "",
+                                         routingKey: "Numbers",
+                                         basicProperties: null,
+                                         body: body);
+
+                 Console.WriteLine($"\n Numero Gerado:  {randonNum} ");
+                }
+               
+
+                Console.WriteLine("\n Finalizado!");
             }
 
 
